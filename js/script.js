@@ -26,18 +26,18 @@ function time(){
 
 function chColor(i){
     let hsl,gd;
-    hsl = 'hsl('+ i +'%,70%,100%';
-    gd = 'linear-gradient( #000 20%,'+ hsl +')';
-    color.style.background = gd;
-    // console.log(gd);
+    hsl = 'hsl('+ i +'deg,100%,50%)';
+    gd = `linear-gradient( #000 20%, ${hsl})`;
+    color.style.background= gd;
+    //console.log(gd);
 }
 let c = 0;
 function calling() {
     setInterval(chColor(c),1000);
     c++;
-    if(c>100){
+    if(c>360){
         c=0;
     }
 }
-setInterval(calling,200);
+setInterval(calling,100);
 setInterval(time,1000);
