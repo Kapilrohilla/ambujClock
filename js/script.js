@@ -35,4 +35,4 @@ function chColor(){
     color.style.background = ln_gd;
 }
 setInterval(chColor,1000);
-setInterval(time,10);
+setInterval(time,500);
