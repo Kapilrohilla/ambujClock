@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #272727;
+  color: #fff;
+  font-size: 40px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+}
+body .container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  border-radius: 20px;
+  overflow: hidden;
+}
+body .container .clock-contain {
+  padding: 30px 50px 0px 50px;
+  margin-bottom: 10px;
+}
+body .container .clock-contain .second {
+  color: grey;
+}
+body .container .color {
+  height: 15px;
+  width: 100%;
+  background-image: linear-gradient(to bottom, #19282c, #26789b);
+  transition: background-image 0.5s;
+}
+
+@media screen and (max-width: 500px) {
+  .clock-contain {
+    padding: 50px 30px 10px 30px !important;
+  }
+  .clock:nth-of-type(3), .clock:nth-of-type(5) {
+    margin-top: -5px;
+    display: block;
+  }
+  .clock-contain > .sept {
+    display: none;
+  }
+}/*# sourceMappingURL=style.css.map */
