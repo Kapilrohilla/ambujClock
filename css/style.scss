@@ -14,43 +14,52 @@ $fColor: #fff;
     left: 50%;
     transform: translate(-50%,-50%);
 }
-// -------------------------------------------------------------------------
-body{
-    background-color: $bgColor;
+@mixin font(){
     color: $fColor;
-    font-size: 40px;
+    font-size: 300px;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
+}
+// -------------------------------------------------------------------------
+body{
+    @include font();
     .container{
         @include toCenter();
+        height: 100vh;
+        width: 100vw;
         background-color: black;
-        border-radius: 20px;
-        overflow: hidden;
         .clock-contain{
-            padding: 30px 50px 0px 50px;
-            margin-bottom: 10px;
+            @include toCenter();
             .second{
                 color: grey;
             }
         }
         .color{
-            height: 15px;
+            position: absolute;
+            height: 200px;
             width: 100%;
-            background-image:linear-gradient(to bottom,#19282c, #26789b);
-            transition: background-image 0.5s; 
+            bottom: 0px;
+            background-image: linear-gradient(to bottom,#000 20%,#fff);
         }
     }
 }
 
 @media screen and (max-width: 500px){
-    .clock-contain{
-        padding: 50px 30px 10px 30px !important;
-    }
-    .clock:nth-of-type(3),.clock:nth-of-type(5){
-        margin-top: -5px;
-        display: block;
-    }
-    .clock-contain > .sept{
-        display: none;
-    }
+    body{
+        .container{
+            font-size: 120px;
+            .clock-contain{
+                top: 40%;
+                .sept{
+                    display: none;
+                }
+                .clock:nth-last-of-type(3), .clock:nth-last-of-type(5){
+                    display: block;
+                }
+            }
+            .color{
+                height: 100px;
+            }
+        }
+    } 
 }

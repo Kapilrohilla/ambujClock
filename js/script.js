@@ -1,7 +1,7 @@
 const hrs = document.querySelector('.hours');
 const min = document.querySelector('.minute');
 const sec = document.querySelector('.second');
-const color = document.querySelector('.color');
+const color = document.getElementById('color');
 
 function time(){
     let h,m,s;
@@ -23,16 +23,21 @@ function time(){
     }
 
 }
-function chColor(){
-    let r,g,b,rgb,ln_gd;
-    
-    r = Math.floor(Math.random() * 255);
-    g = Math.floor(Math.random() * 255);
-    b = Math.floor(Math.random() * 255);
-    rgb = 'rgb('+r+','+g+','+b+')';
 
-    ln_gd = 'linear-gradient(to bottom,#19282c,'+rgb+')';
-    color.style.background = ln_gd;
+function chColor(i){
+    let hsl,gd;
+    hsl = 'hsl('+ i +'%,70%,100%';
+    gd = 'linear-gradient( #000 20%,'+ hsl +')';
+    color.style.background = gd;
+    // console.log(gd);
 }
-setInterval(chColor,1000);
-setInterval(time,500);
+let c = 0;
+function calling() {
+    setInterval(chColor(c),1000);
+    c++;
+    if(c>100){
+        c=0;
+    }
+}
+setInterval(calling,200);
+setInterval(time,1000);
